@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sample</title>
+    <title>Bootstrapシリーズ課題</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
   <body>
+    <header>
+      <ul>
+        <li><a href="#">Bootstrapテキストページ</a></li>
+        <li><%= link_to'トップページ', 'main' %></li>
+      </ul>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      <p>NTTコム チェオ株式会社</p>
+      <p>© 2002-2018 Copyright NTTComCHEO Corp.</p>
+    </footer>
   </body>
+
 </html>

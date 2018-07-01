@@ -4,5 +4,6 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  get '/blogs', to: 'blogs#index'
+  root to: 'blogs#main'
+  get '/blogs', to: 'blogs#main'
 end
