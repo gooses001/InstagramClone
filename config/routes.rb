@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  root to: 'blogs#main'
+  root to: 'sessions#new'
   get '/blogs', to: 'blogs#main'
+
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users
 end

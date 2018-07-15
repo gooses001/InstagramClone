@@ -16,6 +16,20 @@
       </ul>
     </header>
 
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+    
+    <% if logged_in? %>
+      <span class="label label-default"><%= link_to "Myページ", user_path(current_user.id) %></span>
+      <span class="label label-default"><%= link_to "ブログ一覧", blogs_path %></span>
+      <span class="label label-default"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></span>
+
+    <% else %>
+    　<span class="label label-info"><%= link_to "ユーザー登録", new_user_path %></span>
+      <span class="label label-info"><%= link_to "ログイン", new_session_path %></span>
+    <% end %>
+
     <%= yield %>
 
     <footer>
