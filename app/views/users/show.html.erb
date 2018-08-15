@@ -1,3 +1,18 @@
 <h1><%= @user.name %>のページ</h1>
+  <h1>ブログ一覧</h1>
+  <p><%= notice %></p>
+  <table>
+    <tr>
+      <th>タイトル</th>
+      <th>内容</th>
+    </tr>
+  
+  <% @favorite_blogs.each do |favorite| %>
+    <tr>
+      <td><%= favorite.content %></td>
+    </tr>
+  <% end %>
+
+  </table>
 
 <p>メールアドレス: <%= @user.email %></p>

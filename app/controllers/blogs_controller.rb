@@ -1,6 +1,5 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  
   def index
     @blogs = Blog.all
   end
@@ -15,6 +14,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.create(blog_params)
+    @blog.user_id = current_user.id
     if @blog.save
       redirect_to new_blog_path, notice: "ブログを作成しました！"
     else
@@ -23,7 +23,7 @@ class BlogsController < ApplicationController
   end
   
   def show
-    @blog = Blog.find(params[:id])
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
 
   end
 
@@ -41,6 +41,9 @@ class BlogsController < ApplicationController
   end
 
   def destroy
+    favorite = current_user.favorites.find_by(id: params[:id]).destroy #追記
+    redirect_to blogs_url, notice: "#{favorite.blog.user.name}さんのブログをお気に入り解除しました" #追記
+
     @blog.destroy
     redirect_to blogs_path, notice:"ブログを削除しました！"
   end

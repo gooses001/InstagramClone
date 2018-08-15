@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  skip_before_action :logged_in?
+  
   def new
     @user = User.new
   end
@@ -15,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @favorite_blogs = @user.favorite_blogs
   end
 
 

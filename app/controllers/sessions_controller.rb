@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  
+  skip_before_action :logged_in?
+
   def new
   end
   
@@ -19,6 +22,6 @@ class SessionsController < ApplicationController
     redirect_to new_session_path
   end
 
-  skip_before_action :user_logged_in?
+
 
 end
