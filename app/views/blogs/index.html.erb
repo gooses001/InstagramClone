@@ -9,14 +9,17 @@
   <p><%= notice %></p>
   <table>
     <tr>
+      <th> </th>
       <th>タイトル</th>
       <th>内容</th>
     </tr>
   
   <% @blogs.each do |blog| %>
     <tr>
+      <td><%= image_tag blog.image.to_s %></td>
       <td><%= blog.title %></td>
       <td><%= blog.content %></td>
+      
     <% if blog.user_id == current_user.id %>
       <td class="alert alert-info"><%= link_to'詳細を確認する',blog_path(blog.id) %></td>
       <td class="alert alert-warning"><%= link_to "ブログを編集する", edit_blog_path(blog.id),data: { confirm: '本当に編集していいですか？' } %> </td>

@@ -23,6 +23,10 @@
   
   <%= f.label :パスワード再入力 %>
   <%= f.password_field :password_confirmation %>
+  
+  <%= f.label :image %>
+  <%= f.file_field :image, id: :user_image %>
+    
   <br>
   <%= f.submit "アカウント作成" %>
 <% end %>

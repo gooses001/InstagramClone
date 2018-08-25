@@ -43,9 +43,6 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-    favorite = current_user.favorites.find_by(id: params[:id]).destroy #追記
-    redirect_to blogs_url, notice: "#{favorite.blog.user.name}さんのブログをお気に入り解除しました" #追記
-
     @blog.destroy
     redirect_to blogs_path, notice:"ブログを削除しました！"
   end
@@ -59,7 +56,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:title, :content, :image, :image_cache)
   end
   
   def set_blog

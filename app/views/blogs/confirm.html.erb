@@ -4,6 +4,7 @@
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
 
+  <p><%= image_tag(@blog.image) %></p>
   <p>タイトル:<%= @blog.title %></p>
   <p>本文:<%= @blog.content %></p>
   <%= form.submit  "登録" %>

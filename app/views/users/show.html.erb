@@ -1,14 +1,17 @@
 <h1><%= @user.name %>のページ</h1>
+  <%=image_tag @user.image.to_s %>
   <h1>ブログ一覧</h1>
   <p><%= notice %></p>
   <table>
     <tr>
+      <th> </th>
       <th>タイトル</th>
       <th>内容</th>
     </tr>
   
   <% @favorite_blogs.each do |favorite| %>
     <tr>
+      <td><%= image_tag @blog.image %></td>
       <td><%= favorite.title %></td>
       <td><%= favorite.content %></td>
     </tr>
