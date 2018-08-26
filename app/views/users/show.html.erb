@@ -11,7 +11,7 @@
   
   <% @favorite_blogs.each do |favorite| %>
     <tr>
-      <td><%= image_tag @blog.image %></td>
+      <td><%= image_tag favorite.image %></td>
       <td><%= favorite.title %></td>
       <td><%= favorite.content %></td>
     </tr>
