@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrapシリーズ課題</title>
+    <title>Instagram-clone</title>
     <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -22,7 +22,7 @@
     
     <% if logged_in? %>
       <span class="label label-default"><%= link_to "Myページ", user_path(current_user.id) %></span>
-      <span class="label label-default"><%= link_to "ブログ一覧", blogs_path %></span>
+      <span class="label label-default"><%= link_to "画像一覧", blogs_path %></span>
       <span class="label label-default"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></span>
 
     <% else %>

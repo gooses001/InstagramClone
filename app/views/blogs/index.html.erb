@@ -8,32 +8,34 @@
   
   <body>
     <div class="container">
-      <h1>ブログ一覧</h1>
+      <h1>画像一覧</h1>
       <p><%= notice %></p>
       <table>
         <tr>
           <th> </th>
-          <th>タイトル</th>
-          <th>内容</th>
+<!--          <th>　タイトル　</th> -->
+          <th>　Content　</th>
+          <th>　投稿者　</th>
         </tr>
         <% @blogs.each do |blog| %>
         <tr>
             <td><%= image_tag blog.image.to_s %></td>
-            <td><%= blog.title %></td>
+<!--            <td><%#= blog.title %></td> -->
             <td><%= blog.content %></td>
+            <td><%= blog.user.name %></td> 
         
           <% if blog.user_id == current_user.id %>
-            <td class="alert alert-info"><%= link_to'詳細を確認する',blog_path(blog.id) %></td>
-            <td class="alert alert-warning"><%= link_to "ブログを編集する", edit_blog_path(blog.id),data: { confirm: '本当に編集していいですか？' } %> </td>
-            <td class="alert alert-danger"><%= link_to 'ブログを削除する', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %> </td>
+            <td class="alert alert-info"><%= link_to'詳細',blog_path(blog.id) %></td>
+            <td class="alert alert-warning"><%= link_to "編集", edit_blog_path(blog.id),data: { confirm: '本当に編集していいですか？' } %> </td>
+            <td class="alert alert-danger"><%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %> </td>
           <% else %>
-            <td class="alert alert-info"><%= link_to'詳細を確認する',blog_path(blog.id) %></td>
+            <td class="alert alert-info"><%= link_to'詳細',blog_path(blog.id) %></td>
           <% end %>
         </tr>
         <% end %>
       </table>
       <span class="label label-default">
-        <%= link_to '新しくブログを投稿する', new_blog_path %>
+        <%= link_to '新しく投稿する', new_blog_path %>
       </span>
     </div>
   </body>

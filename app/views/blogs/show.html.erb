@@ -1,6 +1,6 @@
-<h1>ブログ詳細画面</h1>
-<p>タイトル: <%= @blog.title %></p>
-<p>内容: <%= @blog.content %></p>
+<h1>詳細画面</h1>
+<!-- <p>タイトル: <%= @blog.title %></p> -->
+<p>Content: <%= @blog.content %></p>
 <p> <%=image_tag @blog.image.to_s %></p>
 <% unless @blog.user_id == current_user.id %>
   <% if @favorite.present? %>
@@ -10,4 +10,4 @@
   <% end %>
 <% end %>
 
-<%= link_to "ブログ一覧画面にもどる", blogs_path %>
+<%= link_to "一覧画面にもどる", blogs_path %>

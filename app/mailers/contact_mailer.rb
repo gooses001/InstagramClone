@@ -1,7 +1,7 @@
 class ContactMailer < ApplicationMailer
   def contact_mail(user)
     @user = user
-    mail to: user.email, subject: "ブログの確認メール"
+    mail to: user.email, subject: "Instagramの確認メール"
   end
   
   def new
