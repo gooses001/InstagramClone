@@ -1,5 +1,6 @@
 <h1><%= @user.name %>のページ</h1>
   <%=image_tag @user.image.to_s %>
+<p>メールアドレス: <%= @user.email %></p>
   <h1>お気に入り一覧</h1>
   <p><%= notice %></p>
   <table align="center">
@@ -19,4 +20,3 @@
 
   </table>
 
-<p>メールアドレス: <%= @user.email %></p>
